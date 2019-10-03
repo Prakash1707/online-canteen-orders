@@ -1,0 +1,106 @@
+{% extends 'signup/layout.html' %}
+{% block body %}
+    <head>
+        <script>
+            function myFunction() {
+                var x = document.getElementById('bf');
+                if (x.style.visibility === 'hidden') {
+                    x.style.visibility = 'visible';
+                } else {
+                    x.style.visibility = 'hidden';
+                }
+            }
+            function myFunction1() {
+                var x = document.getElementById('lch');
+                if (x.style.visibility === 'hidden') {
+                    x.style.visibility = 'visible';
+                } else {
+                    x.style.visibility = 'hidden';
+                }
+            }
+            function myFunction2() {
+                var x = document.getElementById('sck');
+                if (x.style.visibility === 'hidden') {
+                    x.style.visibility = 'visible';
+                } else {
+                    x.style.visibility = 'hidden';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form method="post" enctype="multipart/form-data" action="cartp">
+        {% csrf_token %}
+        <p onclick="myFunction()">BREAKFAST</p>
+        <div name="breakfast" id='bf'>
+            <table>
+                <tr>
+                    <th>IMAGE</th>
+                    <th>ITEM NAME</th>
+                    <th>    </th>
+                    <th>PRICE</th>
+                    <th>    </th>
+                    <th>QUANTITY</th>
+                </tr>
+                {% for i in bf %}
+                <tr>
+                    <td><img style="height:42mm;width:42mm" src="{{i.img.url}}"></td>
+                    <td>{{ i.name}}</td>
+                    <td>    </td>
+                    <td>{{i.price}}</td>
+                    <td>    </td>
+                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0"></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <p onclick="myFunction1()">LUNCH</p>
+        <div name="lunch" id='lch' >
+            <table>
+                <tr>
+                    <th>IMAGE</th>
+                    <th>ITEM NAME</th>
+                    <th>    </th>
+                    <th>PRICE</th>
+                    <td>    </td>
+                    <th>QUANTITY</th>
+                </tr>
+                {% for i in lch %}
+                <tr>
+                    <td><img style="height:42mm;width:42mm" src="{{i.img.url}}"></td>
+                    <td>{{ i.name}}</td>
+                    <td>    </td>
+                    <td>{{i.price}}</td>
+                    <td>    </td>
+                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0"></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <p onclick="myFunction2()">SNACKS</p>
+        <div name="snamcks" id='sck'>
+            <table>
+                <tr>
+                    <th>IMAGE</th>
+                    <th>ITEM NAME</th>
+                    <th>    </th>
+                    <th>PRICE</th>
+                    <td>    </td>
+                    <th>QUANTITY</th>
+                </tr>
+                {% for i in sck %}
+                <tr>
+                    <td><img style="height:42mm;width:42mm" src="{{i.img.url}}"></td>
+                    <td>{{ i.name}}</td>
+                    <td>    </td>
+                    <td>{{i.price}}</td>
+                    <td>    </td>
+                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0"></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <input type="submit" name="submit" value="ADD TO CART">
+        </form>
+    </body>
+{% endblock %}

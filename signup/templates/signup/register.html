@@ -1,0 +1,54 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Register</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/floating-labels/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="floating-labels.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <form class="form-signin" method="post" enctype="multipart/form-data" action="verify">
+      {% csrf_token %}
+      <div class="text-center mb-4">
+        <img class="mb-4" src="/images/logo.jpg" alt="" width="100" height="100">
+      </div>
+      <h3 style="position: absolute;right:720px"><b>SIGNUP</b></h3>
+      <div class="form-label-group">
+        <input type="text"  class="form-control" name="fname" placeholder="First Name" style="width: 250px;position: absolute; right: 630px;top:190px"  required autofocus>
+      </div>
+      <div class="form-label-group">
+        <input type="text"  class="form-control" name="lName" placeholder="Last Name" style="width: 250px;position:absolute;right: 630px;top:240px" required>
+      </div>
+      <div class="form-label-group">
+        <input type="number" name="phNo" maxlength="10" minlength="10"  class="form-control" placeholder="Phone number" style="width: 250px;position: absolute; right: 630px;top:290px"  required>
+      </div>
+      <div class="form-label-group" style="position: absolute;right:600px;top:340px">
+        Gender:&emsp;&emsp;<input  class="form-check-input" type="radio" name="gender" value="male">Male&emsp;&emsp;<input class="form-check-input" type="radio" name="gender" value="female" >Female&emsp;&emsp;<input class="form-check-input" type="radio" name="gender" value="other">other
+      </div>
+      <div class="form-label-group">
+        <input type="email"  class="form-control" name="email" placeholder="Email" style="width: 250px;position:absolute;right: 630px;top:390px" required>
+      </div>
+      <div class="form-label-group">
+        <input type="password"  class="form-control" name="pWord" placeholder="password" style="width: 250px;position:absolute;right: 630px;top:440px" required>
+      </div>
+      <div class="form-label-group">
+        <input type="password"  class="form-control" name="cPWord" placeholder="confirm password" style="width: 250px;position:absolute;right: 630px;top:490px" required>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 250px;position: absolute ;right:630px ;top:550px">Sign in</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'signup/layout.html' %}
+{% block body %}
+    <body>
+        <form method="post" enctype="multipart/form-data" action="cmplt">
+            {% csrf_token %}
+        <table>
+            <tr>
+                <th>NAME</th>
+                <th>     </th>
+                <th>TYPE</th>
+                <th>     </th>
+                <th>PRICE</th>
+                
+                <th>QUANTITY</th>
+            </tr>
+            {% for item in list %}
+            
+            <tr>
+                <td>{{item.name}}</td>
+                <th>     </th>
+                <td>{{item.typeof}}</td>
+                <th>     </th>
+                <td>{{item.price}}</td>
+                <td>{{item.quantity}}</td>
+            </tr>
+            
+            {% endfor %}
+        </table>
+        Total value:{{total}}
+        Transaction Id:{{id}}
+        <br>
+        <pre>     
+            
+        </pre>
+        <h2>Fill the following details(except To:) to send a email</h2>
+        Username:&emsp;&emsp;       <input type="text" name="uname"><br>
+        TO:&emsp;&emsp;             <input type="email" name="to" value="saisaran6527@gmail.com"><br>
+        From:&emsp;&emsp;           <input type="email" name="from"><br>
+        Transaction Id&emsp;&emsp;  <input type="text" name="id" value="{{id}}"><br>
+        Bill&emsp;&emsp;            <input type="text" name="bill" value="{{total}}"><br><br>
+        <button type="submit" value="submit">confirm</button>
+        </form>
+    </body>
+</html>  
+{% endblock %}
