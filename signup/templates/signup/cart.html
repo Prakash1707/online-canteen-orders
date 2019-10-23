@@ -26,19 +26,23 @@
             
             {% endfor %}
         </table>
+        <pre>
+
+            
+        </pre>
         Total value:{{total}}
         Transaction Id:{{id}}
         <br>
         <pre>     
-            
+        <h2>Fill the following details to send a email</h2>
+        Username:            <input type="text" name="uname"><br>
+        TO:                  <input type="email" name="to" value="saisaran6527@gmail.com"><br>
+        From:                <input type="email" name="from"><br>
+        Transaction Id:      <input type="text" name="id" value="{{id}}"><br>
+        Bill:                <input type="text" name="bill" value="{{total}}"><br><br>
+        Date:                <input type="date" name="date" min="{{mind}}" max="{{maxd}}">
+        <button class="btn btn-lg btn-primary btn-block" style="width: 250px" type="submit" value="submit">confirm</button>
         </pre>
-        <h2>Fill the following details(except To:) to send a email</h2>
-        Username:&emsp;&emsp;       <input type="text" name="uname"><br>
-        TO:&emsp;&emsp;             <input type="email" name="to" value="saisaran6527@gmail.com"><br>
-        From:&emsp;&emsp;           <input type="email" name="from"><br>
-        Transaction Id&emsp;&emsp;  <input type="text" name="id" value="{{id}}"><br>
-        Bill&emsp;&emsp;            <input type="text" name="bill" value="{{total}}"><br><br>
-        <button type="submit" value="submit">confirm</button>
         </form>
     </body>
 </html>  

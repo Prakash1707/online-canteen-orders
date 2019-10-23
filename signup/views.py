@@ -7,6 +7,7 @@ from .models import transactions
 import uuid
 from django.core.mail import send_mail
 from django.conf import settings
+from datetime import date,timedelta
 
 
 def index(request):
@@ -73,7 +74,9 @@ def cartp(request):
     completed.total=sum
     completed.transactionId=id
     completed.save()
-    return render(request,'signup/cart.html',{'list':allcart,'total':sum,'id':id})
+    mind=date.today().isoformat()
+    maxd=(date.today()+timedelta(days=7)).isoformat()
+    return render(request,'signup/cart.html',{'list':allcart,'total':sum,'id':id,'mind':mind,'maxd':maxd})
 
 def cmplt(request):
     name=request.POST.get('uname')
@@ -82,7 +85,8 @@ def cmplt(request):
     id=request.POST.get('id')
     bill=request.POST.get('bill')
     li=[to,fromm,]
-    msg=name+' '+bill+' '+id
+    date=request.POST.get('date')
+    msg=name+'\n'+bill+'\n'+id+'\n'+date
     send_mail('thank you',msg,fromm,li,fail_silently=False)
     return render(request,'signup/index.html')
 

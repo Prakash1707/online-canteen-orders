@@ -1,38 +1,31 @@
 {% extends 'signup/layout.html' %}
 {% block body %}
-    <head>
-        <script>
-            function myFunction() {
-                var x = document.getElementById('bf');
-                if (x.style.visibility === 'hidden') {
-                    x.style.visibility = 'visible';
-                } else {
-                    x.style.visibility = 'hidden';
-                }
+<head>
+        <style type="text/css">
+            td,th
+            {
+                padding:0 15px 0 15px;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 18px;
             }
-            function myFunction1() {
-                var x = document.getElementById('lch');
-                if (x.style.visibility === 'hidden') {
-                    x.style.visibility = 'visible';
-                } else {
-                    x.style.visibility = 'hidden';
-                }
+            table{
+                border-collapse: separate;
+                border-spacing: 5px;
             }
-            function myFunction2() {
-                var x = document.getElementById('sck');
-                if (x.style.visibility === 'hidden') {
-                    x.style.visibility = 'visible';
-                } else {
-                    x.style.visibility = 'hidden';
-                }
-            }
-        </script>
-    </head>
-    <body>
+            </style>
+</head>
+    <body style="align-content: center;">
+        <centre>
         <form method="post" enctype="multipart/form-data" action="cartp">
         {% csrf_token %}
-        <p onclick="myFunction()">BREAKFAST</p>
+        <pre>
+            
+        </pre>
+        <b style="font-size: 20px;">BREAKFAST</b>
         <div name="breakfast" id='bf'>
+        <pre>
+        </pre>
             <table>
                 <tr>
                     <th>IMAGE</th>
@@ -49,12 +42,16 @@
                     <td>    </td>
                     <td>{{i.price}}</td>
                     <td>    </td>
-                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0"></td>
+                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0" style="width: 50px;"></td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
-        <p onclick="myFunction1()">LUNCH</p>
+        <pre>
+        </pre>
+        <b style="font-size: 20px;">LUNCH</b>
+        <pre>
+        </pre>
         <div name="lunch" id='lch' >
             <table>
                 <tr>
@@ -72,12 +69,16 @@
                     <td>    </td>
                     <td>{{i.price}}</td>
                     <td>    </td>
-                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0"></td>
+                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0" style="width: 50px;"></td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
-        <p onclick="myFunction2()">SNACKS</p>
+        <pre>
+        </pre>
+        <b style="font-size: 20px;">SNACKS</b>
+        <pre>
+        </pre>
         <div name="snamcks" id='sck'>
             <table>
                 <tr>
@@ -95,12 +96,16 @@
                     <td>    </td>
                     <td>{{i.price}}</td>
                     <td>    </td>
-                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0"></td>
+                    <td><input type="number" name="{{i.name}}" maxlength="1" value="0" style="width: 50px;"></td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
-        <input type="submit" name="submit" value="ADD TO CART">
+        <pre>
+
+        </pre>
+        <input class="btn btn-lg btn-primary btn-block" style="width: 200px" type="submit" name="submit" value="ADD TO CART">
         </form>
+        </centre>
     </body>
 {% endblock %}
