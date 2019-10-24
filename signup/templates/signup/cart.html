@@ -1,5 +1,20 @@
 {% extends 'signup/layout.html' %}
 {% block body %}
+<head>
+        <style type="text/css">
+            td,th
+            {
+                padding:0 15px 0 15px;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 18px;
+            }
+            table{
+                border-collapse: separate;
+                border-spacing: 5px;
+            }
+            </style>
+</head>
     <body>
         <form method="post" enctype="multipart/form-data" action="cmplt">
             {% csrf_token %}
@@ -31,13 +46,13 @@
             
         </pre>
         Total value:{{total}}
+        
         Transaction Id:{{id}}
         <br>
         <pre>     
         <h2>Fill the following details to send a email</h2>
         Username:            <input type="text" name="uname"><br>
-        TO:                  <input type="email" name="to" value="saisaran6527@gmail.com"><br>
-        From:                <input type="email" name="from"><br>
+        YOUR MAIL:           <input type="email" name="from"><br>
         Transaction Id:      <input type="text" name="id" value="{{id}}"><br>
         Bill:                <input type="text" name="bill" value="{{total}}"><br><br>
         Date:                <input type="date" name="date" min="{{mind}}" max="{{maxd}}">

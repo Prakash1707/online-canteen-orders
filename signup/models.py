@@ -5,7 +5,7 @@ class details(models.Model):
     lastName=models.CharField(max_length=20)
     phone=models.IntegerField()
     gender=models.CharField(max_length=10)
-    email=models.EmailField(unique=True,null=False)
+    email=models.EmailField(null=False)
     username=models.CharField(primary_key=True,null=False,max_length=20)
     password=models.CharField(max_length=12,null=False)
 

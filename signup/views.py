@@ -23,7 +23,7 @@ def home(request):
     bf=foodItem.objects.filter(typeof__exact='breakfast')
     lch=foodItem.objects.filter(typeof__exact='lunch')
     sck=foodItem.objects.filter(typeof__exact='snacks')
-    return render(request,'signup/home.html',{'bf':bf,'lch':lch,'sck':sck})
+    return render(request,'signup/home.html',{'bf':bf,'lch':lch,'sck':sck,'uname':uname})
     
 
 def verify(request):
@@ -80,13 +80,19 @@ def cartp(request):
 
 def cmplt(request):
     name=request.POST.get('uname')
-    to=request.POST.get('to')
     fromm=request.POST.get('from')
     id=request.POST.get('id')
     bill=request.POST.get('bill')
-    li=[to,fromm,]
+    li=['saisaran6527@gmail.com',fromm,]
     date=request.POST.get('date')
-    msg=name+'\n'+bill+'\n'+id+'\n'+date
+    cartitems = cart.objects.filter(transcid__exact=id)
+    il=' '
+    for i in cartitems:
+        il+='item:      '+i.name
+        il+='\tquantity:'+str(i.quantity)
+        il+='\n'
+
+    msg=name+'\n'+bill+'\n'+id+'\n'+date+'\n'+il
     send_mail('thank you',msg,fromm,li,fail_silently=False)
     return render(request,'signup/index.html')
 
